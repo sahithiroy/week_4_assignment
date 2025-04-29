@@ -1,0 +1,41 @@
+<template>
+    <div class="signup-container">
+        <lightning-card class="signup-card">
+            <h2 slot="title" class="custom-title">Sign Up</h2>
+            <div class="form-container">
+                <lightning-input label="Name" value={name} onchange={handleChange} data-id="name" required></lightning-input>
+                <lightning-input label="Username" value={username} onchange={handleChange} data-id="username" required></lightning-input>
+                <lightning-input label="Password" type="password" value={password} onchange={handleChange} data-id="password" required></lightning-input>
+                <lightning-input label="Email" type="email" value={email} onchange={handleChange} data-id="email" required></lightning-input>
+                <lightning-input label="Role" value={role} onchange={handleChange} data-id="role"></lightning-input>
+                <lightning-input label="Age" type="number" value={age} onchange={handleChange} data-id="age"></lightning-input>
+                <lightning-input label="Birthday" type="date" value={birthday} onchange={handleChange} data-id="birthday"></lightning-input>
+                <lightning-input label="Joining Date" type="date" value={joiningDate} onchange={handleChange} data-id="joiningDate"></lightning-input>
+                <lightning-combobox
+                    label="Manager Name"
+                    value={Manager}
+                    options={managerOptions}  
+                    onchange={handleChange}
+                    data-id="Manager"
+                    placeholder="Select Manager"
+                ></lightning-combobox>
+                
+                <lightning-input label="Is Manager" type="checkbox" checked={isManager} onchange={handleChange} data-id="isManager"></lightning-input>
+
+                <div class="slds-m-top_medium">
+                    <lightning-button label="Submit" variant="brand" onclick={handleSubmit}></lightning-button>
+                    <lightning-button label="Login" variant="base" onclick={navigateToLogin} class="slds-m-left_small"></lightning-button>
+                </div>
+
+                <template if:true={successMessage}>
+                    <p class="slds-text-color_success slds-m-top_medium">{successMessage}</p>
+                </template>
+
+                <template if:true={errorMessage}>
+                    <p class="slds-text-color_error slds-m-top_medium">{errorMessage}</p>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>
+

@@ -1,0 +1,16 @@
+<template>
+    <template if:true={recordId}>
+        <lightning-card title="Related Opportunities">
+            <lightning-datatable key-field="Id" data={opps} columns={oppColumns}></lightning-datatable>
+        </lightning-card>
+
+        <lightning-card title="Related Contacts">
+            <lightning-datatable key-field="Id" data={contacts} columns={contactColumns}></lightning-datatable>
+        </lightning-card>
+
+        <lightning-card title="Related Cases">
+            <lightning-datatable key-field="Id" data={cases} columns={caseColumns}></lightning-datatable>
+        </lightning-card>
+
+    </template>
+</template>

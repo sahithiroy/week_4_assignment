@@ -1,0 +1,25 @@
+<template>
+
+    <div class="slds-grid slds-grid_align-end slds-p-around_medium">
+        <lightning-button label="Logout" onclick={navigateToLogin}></lightning-button>
+    </div>
+    <template if:true={isCeo}>
+        <lightning-input type="search" label="Search Employee" onchange={handleSearch}></lightning-input>
+    </template>
+
+<lightning-card title="Accounts List">
+    <lightning-datatable
+        key-field="Id"
+        data={accounts}
+        columns={columns}
+        onrowaction={handleRowAction}>
+    </lightning-datatable>
+</lightning-card>
+
+<template if:true={selectedAccountId}>
+    <c-related-lists record-id={selectedAccountId}></c-related-lists>
+</template>
+<template if:true={isManager}>
+    <c-manager-login-activity activities={employeeLoginActivities}></c-manager-login-activity>
+</template>
+</template> 

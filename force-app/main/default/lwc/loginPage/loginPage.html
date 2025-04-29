@@ -1,0 +1,20 @@
+<template>
+    <div class="login-container">
+        <lightning-card title="Login Page" class="login-card">
+            <div class="form-container">
+                <lightning-input label="Username" value={username} onchange={handleUsernameChange}></lightning-input>
+                <lightning-input label="Password" type="password" value={password} onchange={handlePasswordChange}></lightning-input>
+
+                <div class="button-group">
+                    <lightning-button variant="brand" label="Login" onclick={handleLogin}></lightning-button>
+                    <lightning-button variant="neutral" label="Sign Up" onclick={navigateToSignup} class="slds-m-left_small"></lightning-button>
+                    <lightning-button variant="base" label="Forgot Password?" onclick={navigateToForgotPassword} class="slds-m-left_small"></lightning-button>
+                </div>
+
+                <template if:true={error}>
+                    <p class="slds-text-color_error slds-m-top_medium">{error}</p>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>
